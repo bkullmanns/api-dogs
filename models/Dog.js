@@ -1,9 +1,7 @@
 const { Model } = require("objection");
 
 class Dog extends Model {
-  static get tableName() {
-    return "dogs";
-  }
+  static tableName = "dogs";
 }
 
 exports.Dog = Dog;
