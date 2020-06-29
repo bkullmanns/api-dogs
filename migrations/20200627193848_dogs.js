@@ -4,7 +4,10 @@ exports.up = function (knex) {
     table.string("name");
     table.string("breed");
     table.string("img");
+    table.string("alt_img");
+    table.string("bio");
     table.string("genre");
+    table.integer("good_dog").default(0);
   });
 };
 
