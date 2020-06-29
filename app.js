@@ -8,7 +8,7 @@ const knexConfig = require("./knexfile");
 
 app.use(bodyParser.json());
 
-const knex = require("knex")(knexConfig.development);
+const knex = require("knex")(knexConfig);
 
 Model.knex(knex);
 
