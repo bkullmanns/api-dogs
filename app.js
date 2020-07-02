@@ -30,9 +30,10 @@ app.post("/dogs", async (req, res) => {
   try {
     const dog = await Dog.query().insert({
       name: req.body.name,
-      genre: req.body.genre,
-      img: req.body.img,
       breed: req.body.breed,
+      img: req.body.img,
+      genre: req.body.genre,
+      bio: req.body.bio,
     });
     if (dog) {
       return res.json(dog);
