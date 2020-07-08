@@ -1,11 +1,13 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const bodyParser = require("body-parser");
 const { Model, raw } = require("objection");
 const { Dog } = require("./models/Dog");
 const knexConfig = require("./knexfile");
 
+app.use(cors());
 app.use(bodyParser.json());
 
 const knex = require("knex")(knexConfig);
@@ -27,6 +29,7 @@ app.get("/dogs", async (req, res) => {
 });
 
 app.post("/dogs", async (req, res) => {
+  console.log("data", req.body);
   try {
     const dog = await Dog.query().insert({
       name: req.body.name,
@@ -107,6 +110,6 @@ app.patch("/dogs/:breed/:id/gooddog", async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT || 3000, function () {
+app.listen(process.env.PORT || 3001, function () {
   console.log("running...");
 });
